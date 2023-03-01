@@ -4,7 +4,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "ViewStateController", platforms: [
+    name: "ViewStateController",
+    platforms: [
         .iOS(.v15),
         .macOS(.v12)
     ],
