@@ -5,8 +5,8 @@
 //  Created by Manu on 23/02/2023.
 //
 
-import ViewStateController
 import SwiftUI
+import ViewStateController
 
 struct DemoScreen: View {
     @State var controller: ViewStateController<User> = .init()
@@ -33,7 +33,7 @@ struct DemoScreen: View {
                                 },
                                 loadingAfterErrorType: loadingAfterErrorType
                             )
-                        
+
                         Divider()
                         DemoLoadingOptionsView(
                             loadingType: $initialLoadingType,
@@ -115,12 +115,11 @@ struct DemoScreen: View {
             controller.setState(.loaded(
                 .init(
                     name: String(UUID().description.dropLast(20)),
-                    age: Int.random(in: 10...90),
+                    age: Int.random(in: 10 ... 90),
                     emoji: ["⭐️", "😄", "👻", "🍝"].randomElement() ?? "❌"
                 )
             ))
         }
-
     }
 }
 

@@ -36,7 +36,7 @@ struct DemoLoadingHorizontalOptionsView: View {
                     ) {
                         Text($0.rawValue)
                     }
-                }.onChange(of: option) { newValue in
+                }.onChange(of: option) { _ in
                     applyHorizontalState()
                 }
             }
@@ -47,7 +47,7 @@ struct DemoLoadingHorizontalOptionsView: View {
                 Text("Content Opacity")
                 Spacer()
             }
-            Slider(value: $contentOpacity, in: 0.0...1, step: 0.1) { _ in
+            Slider(value: $contentOpacity, in: 0.0 ... 1, step: 0.1) { _ in
                 applyHorizontalState()
             }
             Text(Double(round(10 * contentOpacity) / 10).description)
@@ -66,7 +66,7 @@ struct DemoLoadingHorizontalOptionsView: View {
                     ForEach(AlignmentDemoOption.verticalCases, id: \.self) {
                         Text($0.rawValue)
                     }
-                }.onChange(of: alignment) { newValue in
+                }.onChange(of: alignment) { _ in
                     applyHorizontalState()
                 }
             }
@@ -74,7 +74,7 @@ struct DemoLoadingHorizontalOptionsView: View {
 
         Toggle(isOn: $disableInteraction) {
             Text("Disable Interaction?")
-        }.onChange(of: disableInteraction) { newValue in
+        }.onChange(of: disableInteraction) { _ in
             applyHorizontalState()
         }
         .padding(.trailing, 2)
@@ -85,7 +85,7 @@ struct DemoLoadingHorizontalOptionsView: View {
                 Text("Spacing")
                 Spacer()
             }
-            Slider(value: $spacing, in: 0.0...32.0, step: 1) { _ in
+            Slider(value: $spacing, in: 0.0 ... 32.0, step: 1) { _ in
                 applyHorizontalState()
             }
             Text(spacing.description)

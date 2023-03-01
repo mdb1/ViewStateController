@@ -21,7 +21,7 @@ struct DemoLoadingToolbarOptionsView: View {
                 Text("Content Opacity")
                 Spacer()
             }
-            Slider(value: $contentOpacity, in: 0.0...1, step: 0.1) { _ in
+            Slider(value: $contentOpacity, in: 0.0 ... 1, step: 0.1) { _ in
                 applyToolbarState()
             }
             Text(Double(round(10 * contentOpacity) / 10).description)
@@ -29,7 +29,7 @@ struct DemoLoadingToolbarOptionsView: View {
 
         Toggle(isOn: $disableInteraction) {
             Text("Disable Interaction?")
-        }.onChange(of: disableInteraction) { newValue in
+        }.onChange(of: disableInteraction) { _ in
             applyToolbarState()
         }
         .padding(.trailing, 2)

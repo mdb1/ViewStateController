@@ -26,7 +26,7 @@ struct DemoLoadingOptionsView: View {
         loadingType: Binding<LoadingModifierType>,
         title: String
     ) {
-        self._loadingType = loadingType
+        _loadingType = loadingType
         self.title = title
     }
 

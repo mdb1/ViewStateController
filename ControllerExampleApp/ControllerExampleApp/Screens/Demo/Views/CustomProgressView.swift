@@ -26,4 +26,3 @@ struct CustomProgressView_Previews: PreviewProvider {
         CustomProgressView()
     }
 }
-

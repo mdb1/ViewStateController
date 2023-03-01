@@ -24,7 +24,7 @@ struct DemoLoadingMaterialOptionsView: View {
                 Text("Padding")
                 Spacer()
             }
-            Slider(value: $paddingValue, in: 0.0...32.0, step: 1) { _ in
+            Slider(value: $paddingValue, in: 0.0 ... 32.0, step: 1) { _ in
                 applyMaterialState()
             }
             Text(paddingValue.description)
@@ -32,7 +32,7 @@ struct DemoLoadingMaterialOptionsView: View {
 
         Toggle(isOn: $displayIndicator) {
             Text("Display Indicator?")
-        }.onChange(of: displayIndicator) { newValue in
+        }.onChange(of: displayIndicator) { _ in
             applyMaterialState()
         }
         .padding(.trailing, 2)
@@ -43,7 +43,7 @@ struct DemoLoadingMaterialOptionsView: View {
                 Text("Indicator Padding")
                 Spacer()
             }
-            Slider(value: $indicatorPaddingValue, in: 0.0...32.0, step: 1) { _ in
+            Slider(value: $indicatorPaddingValue, in: 0.0 ... 32.0, step: 1) { _ in
                 applyMaterialState()
             }
             Text(indicatorPaddingValue.description)
@@ -54,7 +54,7 @@ struct DemoLoadingMaterialOptionsView: View {
                 Text("Material Corner Radius")
                 Spacer()
             }
-            Slider(value: $cornerRadius, in: 0.0...50.0, step: 1) { _ in
+            Slider(value: $cornerRadius, in: 0.0 ... 50.0, step: 1) { _ in
                 applyMaterialState()
             }
             Text(cornerRadius.description)
@@ -73,7 +73,7 @@ struct DemoLoadingMaterialOptionsView: View {
                     ForEach(AlignmentDemoOption.allCases, id: \.self) {
                         Text($0.rawValue)
                     }
-                }.onChange(of: alignment) { newValue in
+                }.onChange(of: alignment) { _ in
                     applyMaterialState()
                 }
             }

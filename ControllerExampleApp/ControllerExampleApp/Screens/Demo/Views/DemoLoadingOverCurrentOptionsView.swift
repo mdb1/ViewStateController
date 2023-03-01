@@ -25,7 +25,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
                 Text("Padding")
                 Spacer()
             }
-            Slider(value: $paddingValue, in: 0.0...32.0, step: 1) { _ in
+            Slider(value: $paddingValue, in: 0.0 ... 32.0, step: 1) { _ in
                 applyOverCurrentState()
             }
             Text(paddingValue.description)
@@ -36,7 +36,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
                 Text("Indicator Padding")
                 Spacer()
             }
-            Slider(value: $indicatorPaddingValue, in: 0.0...32.0, step: 1) { _ in
+            Slider(value: $indicatorPaddingValue, in: 0.0 ... 32.0, step: 1) { _ in
                 applyOverCurrentState()
             }
             Text(indicatorPaddingValue.description)
@@ -47,7 +47,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
                 Text("Content Opacity")
                 Spacer()
             }
-            Slider(value: $contentOpacity, in: 0.0...1, step: 0.1) { _ in
+            Slider(value: $contentOpacity, in: 0.0 ... 1, step: 0.1) { _ in
                 applyOverCurrentState()
             }
             Text(Double(round(10 * contentOpacity) / 10).description)
@@ -66,7 +66,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
                     ForEach(AlignmentDemoOption.allCases, id: \.self) {
                         Text($0.rawValue)
                     }
-                }.onChange(of: alignment) { newValue in
+                }.onChange(of: alignment) { _ in
                     applyOverCurrentState()
                 }
             }
@@ -74,7 +74,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
 
         Toggle(isOn: $displayIndicator) {
             Text("Display Indicator?")
-        }.onChange(of: displayIndicator) { newValue in
+        }.onChange(of: displayIndicator) { _ in
             applyOverCurrentState()
         }
         .padding(.trailing, 2)
@@ -82,7 +82,7 @@ struct DemoLoadingOverCurrentOptionsView: View {
 
         Toggle(isOn: $disableInteraction) {
             Text("Disable Interaction?")
-        }.onChange(of: disableInteraction) { newValue in
+        }.onChange(of: disableInteraction) { _ in
             applyOverCurrentState()
         }
         .padding(.trailing, 2)
