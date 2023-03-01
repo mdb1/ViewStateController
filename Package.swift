@@ -19,7 +19,8 @@ let package = Package(
     targets: [
         .target(
             name: "ViewStateController",
-            dependencies: []
+            dependencies: [],
+            exclude: ["ControllerExampleApp/"] // Exclude the files from the ExampleApp
         ),
         .testTarget(
             name: "ViewStateControllerTests",

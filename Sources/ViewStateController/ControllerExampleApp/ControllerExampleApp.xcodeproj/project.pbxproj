@@ -27,7 +27,6 @@
 		3248845D29AF800300F9F36F /* ControllerExampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExampleAppApp.swift; sourceTree = "<group>"; };
 		3248846129AF800300F9F36F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3248846429AF800300F9F36F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3248848829AF803100F9F36F /* ViewStateController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ViewStateController; path = ..; sourceTree = "<group>"; };
 		3248848C29AF805A00F9F36F /* DemoLoadingMaterialOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLoadingMaterialOptionsView.swift; sourceTree = "<group>"; };
 		3248848D29AF805A00F9F36F /* DemoLoadingVerticalOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLoadingVerticalOptionsView.swift; sourceTree = "<group>"; };
 		3248848E29AF805A00F9F36F /* DemoLoadingToolbarOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLoadingToolbarOptionsView.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		3248849229AF805A00F9F36F /* DemoLoadingOverCurrentOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLoadingOverCurrentOptionsView.swift; sourceTree = "<group>"; };
 		3248849329AF805A00F9F36F /* DemoScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoScreen.swift; sourceTree = "<group>"; };
 		3248849529AF805A00F9F36F /* AlignmentDemoOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignmentDemoOption.swift; sourceTree = "<group>"; };
+		3282B1DC29AF8456003EE550 /* ViewStateController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ViewStateController; path = ../../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 		3248845129AF800300F9F36F = {
 			isa = PBXGroup;
 			children = (
-				3248848729AF803100F9F36F /* Packages */,
+				3282B1DB29AF8456003EE550 /* Packages */,
 				3248845C29AF800300F9F36F /* ControllerExampleApp */,
 				3248845B29AF800300F9F36F /* Products */,
 				324884A129AF80A100F9F36F /* Frameworks */,
@@ -85,14 +85,6 @@
 				3248846429AF800300F9F36F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3248848729AF803100F9F36F /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				3248848829AF803100F9F36F /* ViewStateController */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		3248848929AF805A00F9F36F /* Screens */ = {
@@ -141,6 +133,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3282B1DB29AF8456003EE550 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3282B1DC29AF8456003EE550 /* ViewStateController */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
