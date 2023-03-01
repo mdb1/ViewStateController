@@ -13,6 +13,7 @@ struct DemoScreen: View {
     @State private var initialLoadingType: LoadingModifierType = .overCurrentContent()
     @State private var loadingAfterInfoType: LoadingModifierType = .overCurrentContent()
     @State private var loadingAfterErrorType: LoadingModifierType = .overCurrentContent()
+    @State private var displayToast: Bool = false
 
     var body: some View {
         NavigationView {
@@ -54,6 +55,15 @@ struct DemoScreen: View {
                 }
                 buttons
             }
+            .toast(
+                isShowing: $displayToast,
+                type: .default(
+                    options: .init(
+                        message: .init(text: "Hola"),
+                        secondaryMessage: .init(text: "Hey", font: .system(size: 10))
+                    )
+                )
+            )
             .padding()
             .navigationTitle("Demo")
             .navigationBarTitleDisplayMode(.inline)
@@ -76,12 +86,16 @@ struct DemoScreen: View {
     }
 
     var buttons: some View {
-        HStack {
+        VStack {
+            HStack {
+                Button("Loading") { setLoading() }
+                Button("Loaded") { setLoaded() }
+                Button("Error") { setError() }
+                Button("Toast") { withAnimation { displayToast = true } }
+            }
             Button("Reset") { controller.reset() }
-            Button("Loading") { setLoading() }
-            Button("Loaded") { setLoaded() }
-            Button("Error") { setError() }
-        }.buttonStyle(.bordered)
+        }
+        .buttonStyle(.bordered)
     }
 
     func loadedView(user: User) -> some View {
