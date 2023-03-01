@@ -13,6 +13,6 @@ ViewStateController is a framework for Swift and SwiftUI developers that provide
 
 To run the formatter, just run:
 
-`./Sources/ViewStateController/ControllerExampleApp/scripts/run-formatter.sh` from the root of the repository.
+`swiftformat . --config "Sources/ControllerExampleApp/.swiftformat" --swiftversion 5.7` from the root of the repository.
 
 You need to have `SwiftFormat` installed (`brew install swiftformat`).

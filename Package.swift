@@ -20,7 +20,8 @@ let package = Package(
         .target(
             name: "ViewStateController",
             dependencies: [],
-            exclude: ["ControllerExampleApp/"] // Exclude the files from the ExampleApp
+            path: "Sources",
+            exclude: ["ControllerExampleApp/"]
         ),
         .testTarget(
             name: "ViewStateControllerTests",
