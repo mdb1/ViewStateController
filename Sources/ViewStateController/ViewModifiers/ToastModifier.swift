@@ -73,8 +73,10 @@ private extension ToastModifier {
         if isShowing {
             Group {
                 switch type {
-                case let .default(options):
-                    defaultToastView(options)
+                case let .toast(options):
+                    toastView(options)
+                case let .snackBar(options):
+                    snackBarView(options)
                 case let .custom(view):
                     view
                 }
@@ -115,7 +117,7 @@ private extension ToastModifier {
         }
     }
 
-    func defaultToastView(_ options: DefaultToastOptions) -> some View {
+    func toastView(_ options: ToastOptions) -> some View {
         HStack(alignment: .center) {
             VStack(alignment: options.message.alignment.horizontal) {
                 messageView(options.message)
@@ -145,18 +147,32 @@ private extension ToastModifier {
         .cornerRadius(options.background.cornerRadius)
     }
 
-    func messageView(_ message: DefaultToastOptions.Message) -> some View {
+    func messageView(_ message: ToastOptions.Message) -> some View {
         Text(message.text)
             .foregroundColor(message.color)
             .font(message.font)
             .frame(alignment: message.alignment)
     }
-}
 
-/// Possible types of toasts.
-public enum ToastType {
-    /// The default toast, based on some configurable options.
-    case `default`(options: DefaultToastOptions)
-    /// Displays a custom view.
-    case custom(_ view: AnyView)
+    func snackBarView(_ options: SnackBarOptions) -> some View {
+        HStack(alignment: .center) {
+            Text(options.message.text)
+                .foregroundColor(options.message.color)
+                .font(options.message.font)
+
+            if let image = options.image {
+                Image(systemName: image.imageSystemName)
+                    .resizable()
+                    .frame(width: image.size.width, height: image.size.height)
+                    .tint(image.color)
+                    .foregroundColor(image.color)
+            }
+        }
+        .padding(.leading, options.internalPadding.left)
+        .padding(.top, options.internalPadding.top)
+        .padding(.trailing, options.internalPadding.right)
+        .padding(.bottom, options.internalPadding.bottom)
+        .background(options.background.color)
+        .cornerRadius(options.background.cornerRadius)
+    }
 }

@@ -57,7 +57,7 @@ struct DemoScreen: View {
             }
             .toast(
                 isShowing: $displayToast,
-                type: .default(
+                type: .toast(
                     options: .init(
                         message: .init(text: "Hola"),
                         secondaryMessage: .init(text: "Hey", font: .system(size: 10))
