@@ -58,13 +58,13 @@ public struct SnackBarOptions {
     let message: Message
     let image: Image?
     let background: Background
-    let internalPadding: UIEdgeInsets
+    let internalPadding: EdgeInsets
 
     public init(
         message: Message,
         image: Image? = nil,
         background: Background = .init(),
-        internalPadding: UIEdgeInsets = .init(top: 16, left: 16, bottom: 16, right: 16)
+        internalPadding: EdgeInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
     ) {
         self.message = message
         self.image = image

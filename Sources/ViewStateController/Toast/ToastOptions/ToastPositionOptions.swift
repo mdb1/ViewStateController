@@ -21,11 +21,11 @@ public struct ToastPositionOptions {
     }
 
     let position: Position
-    let padding: UIEdgeInsets
+    let padding: EdgeInsets
 
     public init(
         position: Position = .top,
-        padding: UIEdgeInsets = .zero
+        padding: EdgeInsets = .init()
     ) {
         self.position = position
         self.padding = padding

@@ -62,14 +62,14 @@ public struct ToastOptions {
     let secondaryMessage: Message?
     let trailingButton: TrailingButton?
     let background: Background
-    let internalPadding: UIEdgeInsets
+    let internalPadding: EdgeInsets
 
     public init(
         message: Message,
         secondaryMessage: Message? = nil,
         trailingButton: TrailingButton? = .init(),
         background: Background = .init(),
-        internalPadding: UIEdgeInsets = .init(top: 16, left: 16, bottom: 16, right: 16)
+        internalPadding: EdgeInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
     ) {
         self.message = message
         self.secondaryMessage = secondaryMessage

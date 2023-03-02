@@ -58,9 +58,9 @@ public struct ToastModifier: ViewModifier {
             ZStack(alignment: positionOptions.position.alignment) {
                 Color.clear
                 toastView
-                    .padding(.leading, positionOptions.padding.left)
+                    .padding(.leading, positionOptions.padding.leading)
                     .padding(.top, positionOptions.padding.top)
-                    .padding(.trailing, positionOptions.padding.right)
+                    .padding(.trailing, positionOptions.padding.trailing)
                     .padding(.bottom, positionOptions.padding.bottom)
             }
         }
@@ -139,9 +139,9 @@ private extension ToastModifier {
                 }
             }
         }
-        .padding(.leading, options.internalPadding.left)
+        .padding(.leading, options.internalPadding.leading)
         .padding(.top, options.internalPadding.top)
-        .padding(.trailing, options.internalPadding.right)
+        .padding(.trailing, options.internalPadding.trailing)
         .padding(.bottom, options.internalPadding.bottom)
         .background(options.background.color)
         .cornerRadius(options.background.cornerRadius)
@@ -168,9 +168,9 @@ private extension ToastModifier {
                     .foregroundColor(image.color)
             }
         }
-        .padding(.leading, options.internalPadding.left)
+        .padding(.leading, options.internalPadding.leading)
         .padding(.top, options.internalPadding.top)
-        .padding(.trailing, options.internalPadding.right)
+        .padding(.trailing, options.internalPadding.trailing)
         .padding(.bottom, options.internalPadding.bottom)
         .background(options.background.color)
         .cornerRadius(options.background.cornerRadius)

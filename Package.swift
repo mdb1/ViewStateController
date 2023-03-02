@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "ViewStateController",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v15),
+        .macOS(.v12)
     ],
     products: [
         .library(
@@ -20,7 +21,7 @@ let package = Package(
             name: "ViewStateController",
             dependencies: [],
             path: "Sources",
-            exclude: ["ControllerExampleApp/"]
+            exclude: [".swiftformat"]
         ),
         .testTarget(
             name: "ViewStateControllerTests",
