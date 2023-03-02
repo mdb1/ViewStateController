@@ -1,12 +1,12 @@
 # ViewStateController
 
-// TODO: Add badge
+[![Swift](https://github.com/mdb1/ViewStateController/actions/workflows/swift.yml/badge.svg)](https://github.com/mdb1/ViewStateController/actions/workflows/swift.yml)
 
 ViewStateController is a framework for Swift and SwiftUI developers that provides a simple and flexible way to manage the state of views that load information from a backend. It allows you to handle different states based on a historical array of states, and provides properties and methods to help you access and modify the state. With ViewStateController, you can easily implement complex views that depend on asynchronous data loading, and create a better user experience by showing loading spinners or error messages.
 
-There is an Example app available [here](// TODO: Insert Link to the Example App repo), where most of the configuration options can be tweaked.
+There is an Example app available [here](https://github.com/mdb1/ViewStateControllerExampleApp), where most of the configuration options can be tweaked.
 
-// TODO: Insert Video of the Example App
+// TODO: Upload a Video of the Example App
 
 # ViewStateController Object
 
@@ -14,18 +14,16 @@ There is an Example app available [here](// TODO: Insert Link to the Example App
 
 ## Examples with code samples
 
+TODO: Upload videos here
+
 # Toast
 
+## Examples with code samples
 
+TODO: Upload videos here
 
 
 # Internal Project Tools
-
-## ExampleApp
-
-There is an Example App where most of the configurable options can be tweaked to test the different states/looks/behaviors of loading/error/toasts.
-
-The project is in `Sources/ControllerExampleApp/ControllerExampleApp.xcodeproj`
 
 ## Formatter
 
