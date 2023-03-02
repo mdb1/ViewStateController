@@ -36,6 +36,7 @@ public struct ToastModifier: ViewModifier {
     private let transitionOptions: ToastTransitionOptions
     private let positionOptions: ToastPositionOptions
     private let onTap: (() -> Void)?
+    @State private var cancelableAction: DispatchWorkItem?
 
     public init(
         isShowing: Binding<Bool>,
@@ -91,11 +92,21 @@ private extension ToastModifier {
                 }
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + transitionOptions.duration) {
+                cancelableAction = DispatchWorkItem {
                     withAnimation {
                         isShowing = false
                     }
                 }
+
+                if let action = cancelableAction {
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + transitionOptions.duration,
+                        execute: action
+                    )
+                }
+            }
+            .onDisappear {
+                cancelableAction?.cancel()
             }
             .transition(
                 transitionOptions.transition
