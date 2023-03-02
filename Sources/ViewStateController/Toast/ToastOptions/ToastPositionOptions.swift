@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct ToastPositionOptions {
-    public enum Position {
+    public enum Position: String, CaseIterable {
         case bottom, top
 
         var alignment: Alignment {

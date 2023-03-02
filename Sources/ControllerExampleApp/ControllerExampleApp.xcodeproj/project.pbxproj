@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320A533929B1252C00ADA675 /* DemoToastOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A533829B1252C00ADA675 /* DemoToastOptionsView.swift */; };
+		320A533C29B126FD00ADA675 /* DemoDefaultToastOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A533B29B126FD00ADA675 /* DemoDefaultToastOptionsView.swift */; };
+		320A533E29B12DAD00ADA675 /* DemoSnackBarOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A533D29B12DAD00ADA675 /* DemoSnackBarOptionsView.swift */; };
 		3248845E29AF800300F9F36F /* ControllerExampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3248845D29AF800300F9F36F /* ControllerExampleAppApp.swift */; };
 		3248846229AF800300F9F36F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3248846129AF800300F9F36F /* Assets.xcassets */; };
 		3248846529AF800300F9F36F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3248846429AF800300F9F36F /* Preview Assets.xcassets */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320A533829B1252C00ADA675 /* DemoToastOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoToastOptionsView.swift; sourceTree = "<group>"; };
+		320A533B29B126FD00ADA675 /* DemoDefaultToastOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDefaultToastOptionsView.swift; sourceTree = "<group>"; };
+		320A533D29B12DAD00ADA675 /* DemoSnackBarOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSnackBarOptionsView.swift; sourceTree = "<group>"; };
 		3218060D29AF8DB10046E334 /* ViewStateController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ViewStateController; path = ../..; sourceTree = "<group>"; };
 		3248845A29AF800300F9F36F /* ControllerExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControllerExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3248845D29AF800300F9F36F /* ControllerExampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerExampleAppApp.swift; sourceTree = "<group>"; };
@@ -51,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		320A533A29B126E700ADA675 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				320A533829B1252C00ADA675 /* DemoToastOptionsView.swift */,
+				320A533B29B126FD00ADA675 /* DemoDefaultToastOptionsView.swift */,
+				320A533D29B12DAD00ADA675 /* DemoSnackBarOptionsView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		3218060C29AF8DB10046E334 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +133,7 @@
 		3248848B29AF805A00F9F36F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				320A533A29B126E700ADA675 /* Toast */,
 				3248848C29AF805A00F9F36F /* DemoLoadingMaterialOptionsView.swift */,
 				3248848D29AF805A00F9F36F /* DemoLoadingVerticalOptionsView.swift */,
 				3248848E29AF805A00F9F36F /* DemoLoadingToolbarOptionsView.swift */,
@@ -217,8 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3248849E29AF805A00F9F36F /* DemoScreen.swift in Sources */,
+				320A533E29B12DAD00ADA675 /* DemoSnackBarOptionsView.swift in Sources */,
+				320A533929B1252C00ADA675 /* DemoToastOptionsView.swift in Sources */,
 				3248849929AF805A00F9F36F /* DemoLoadingToolbarOptionsView.swift in Sources */,
 				3248849C29AF805A00F9F36F /* DemoLoadingOptionsView.swift in Sources */,
+				320A533C29B126FD00ADA675 /* DemoDefaultToastOptionsView.swift in Sources */,
 				3248849A29AF805A00F9F36F /* CustomProgressView.swift in Sources */,
 				3248845E29AF800300F9F36F /* ControllerExampleAppApp.swift in Sources */,
 				3248849729AF805A00F9F36F /* DemoLoadingMaterialOptionsView.swift in Sources */,

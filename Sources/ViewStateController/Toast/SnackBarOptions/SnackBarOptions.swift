@@ -1,6 +1,6 @@
 //
 //  SnackBarOptions.swift
-//  
+//
 //
 //  Created by Manu on 02/03/2023.
 //

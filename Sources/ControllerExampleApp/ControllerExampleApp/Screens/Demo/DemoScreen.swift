@@ -13,6 +13,11 @@ struct DemoScreen: View {
     @State private var initialLoadingType: LoadingModifierType = .overCurrentContent()
     @State private var loadingAfterInfoType: LoadingModifierType = .overCurrentContent()
     @State private var loadingAfterErrorType: LoadingModifierType = .overCurrentContent()
+    @State private var toastType: ToastType = .toast(
+        options: .init(message: .init(text: DemoToastOption.firstLineMessage))
+    )
+    @State private var toastPositionOptions: ToastPositionOptions = .init(position: .top)
+    @State private var toastDuration: TimeInterval = 4
     @State private var displayToast: Bool = false
 
     var body: some View {
@@ -51,18 +56,21 @@ struct DemoScreen: View {
                             title: "Loading After Error Options"
                         )
                         Divider()
+                        DemoToastOptionsView(
+                            toastType: $toastType,
+                            positionOptions: $toastPositionOptions,
+                            duration: $toastDuration
+                        )
+                        Divider()
                     }
                 }
                 buttons
             }
             .toast(
                 isShowing: $displayToast,
-                type: .toast(
-                    options: .init(
-                        message: .init(text: "Hola"),
-                        secondaryMessage: .init(text: "Hey", font: .system(size: 10))
-                    )
-                )
+                type: toastType,
+                transitionOptions: .init(duration: toastDuration),
+                positionOptions: toastPositionOptions
             )
             .padding()
             .navigationTitle("Demo")
