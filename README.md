@@ -8,7 +8,7 @@ There is an Example app available [here](https://github.com/mdb1/ViewStateContro
 
 # ViewStateController Object
 
-The ViewStateController struct is the one that contains the array of historical [ViewStates](https://mdb1.github.io/2023-01-08-new-app-view-state/) and has computed properties that will be used by the ViewStateModifier to determine what to do.
+The [ViewStateController](https://github.com/mdb1/ViewStateController/blob/main/Sources/ViewStateController/ViewState/ViewStateController.swift) struct is the one that contains the array of historical [ViewStates](https://mdb1.github.io/2023-01-08-new-app-view-state/) and has computed properties that will be used by the ViewStateModifier to determine what to do.
 
 * `isInitialLoading`: Returns true only if loading state was set once and there hasn't been errors or info yet.
 * `isLoading`: Returns true if state is loading.
@@ -23,35 +23,35 @@ There are also two mutating methods:
 * `setState(_ state: ViewState<Info>)`: Sets the new state into the states array.
 * `reset()`: Resets everything.
 
-# ViewStateModifier
+## ViewStateModifier
 
-The ViewStateModifier is a ViewModifier that uses the given ViewStateController and configurable options to automatically update the state of a view.
+The [ViewStateModifier](https://github.com/mdb1/ViewStateController/blob/main/Sources/ViewStateController/ViewModifiers/ViewStateModifier.swift) is a ViewModifier that uses the given ViewStateController and configurable options to automatically update the state of a view.
 
 The code of the modifier is pretty straight forward:
 ```swift
 func body(content: Content) -> some View {
-        if controller.isInitialLoading {
-            // Initial loading modifier displayed on the initial loading state.
-            content.modifier(initialLoadingModifier)
-        } else if let info = controller.latestValidInfo {
-            // If we have valid info loaded we display it:
-            loadedView(info)
-                .if(controller.isLoading) { view in
-                    // If we are on a subsequent loading, we add the modifier.
-                    view.modifier(loadingAfterInfoModifier)
-                }
-        } else if let error = controller.latestValidError {
-            // If we have a value error we display it:
-            errorView(error)
-                .if(controller.isLoading) { view in
-                    // If we are on a subsequent loading, we add the modifier.
-                    view.modifier(loadingAfterErrorModifier)
-                }
-        } else {
-            // Otherwise, we display the initial content.
-            content
-        }
+    if controller.isInitialLoading {
+        // Initial loading modifier displayed on the initial loading state.
+        content.modifier(initialLoadingModifier)
+    } else if let info = controller.latestValidInfo {
+        // If we have valid info loaded we display it:
+        loadedView(info)
+            .if(controller.isLoading) { view in
+                // If we are on a subsequent loading, we add the modifier.
+                view.modifier(loadingAfterInfoModifier)
+            }
+    } else if let error = controller.latestValidError {
+        // If we have a value error we display it:
+        errorView(error)
+            .if(controller.isLoading) { view in
+                // If we are on a subsequent loading, we add the modifier.
+                view.modifier(loadingAfterErrorModifier)
+            }
+    } else {
+        // Otherwise, we display the initial content.
+        content
     }
+}
 ```
 
 The method `withViewStateModifier`, is just a convenience way to add the ViewStateModifier to any view:
@@ -78,6 +78,10 @@ func withViewStateModifier<Info, IndicatorView: View, LoadedView: View>(
     loadingAfterErrorType: LoadingModifierType = .overCurrentContent(alignment: .trailing)
 ) -> some View
 ```
+
+## LoadingModifierType
+
+The [LoadingModifierType](https://github.com/mdb1/ViewStateController/blob/main/Sources/ViewStateController/ViewModifiers/LoadingViewModifier.swift) provides some different loading options with configurable parameters.
 
 ## Usage
 
