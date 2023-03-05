@@ -6,6 +6,22 @@ ViewStateController is a framework for Swift and SwiftUI developers that provide
 
 There is an Example app available [here](https://github.com/mdb1/ViewStateControllerExampleApp), where most of the configuration options can be tweaked.
 
+# Table of contents
+
+* [ViewStateController Object](https://github.com/mdb1/ViewStateController#viewstatecontroller-object)
+  * [ViewStateModifier](https://github.com/mdb1/ViewStateController#viewstatemodifier)
+    * [withViewStateModifier](https://github.com/mdb1/ViewStateController#withviewstatemodifier-method)
+  * [LoadingModifierType](https://github.com/mdb1/ViewStateController#loadingmodifiertype)
+  * [Usage](https://github.com/mdb1/ViewStateController#usage)
+  * [Examples with code samples](https://github.com/mdb1/ViewStateController#examples-with-code-samples)
+    * [Redacted](https://github.com/mdb1/ViewStateController#redacted)
+    * [Changing the indicator view](https://github.com/mdb1/ViewStateController#changing-the-indicator-view)
+    * [Changing Loading types](https://github.com/mdb1/ViewStateController#changing-loading-types)
+    * [Using Custom Views](https://github.com/mdb1/ViewStateController#using-custom-views)
+  * [Demo](https://github.com/mdb1/ViewStateController#demo-loading-type-options)
+* [Toasts](https://github.com/mdb1/ViewStateController#toast)
+  * [Examples with code samples](https://github.com/mdb1/ViewStateController#examples-with-code-samples-1)
+
 # ViewStateController Object
 
 The [ViewStateController](https://github.com/mdb1/ViewStateController/blob/main/Sources/ViewStateController/ViewState/ViewStateController.swift) struct is the one that contains the array of historical [ViewStates](https://mdb1.github.io/2023-01-08-new-app-view-state/) and has computed properties that will be used by the ViewStateModifier to determine what to do.
@@ -54,7 +70,9 @@ func body(content: Content) -> some View {
 }
 ```
 
-The method `withViewStateModifier`, is just a convenience way to add the ViewStateModifier to any view:
+### withViewStateModifier method
+
+The `withViewStateModifier` method, is just a convenience way to add the ViewStateModifier to any view:
 
 ```swift
 /// Adds a view state modifier that can display different views depending on the state of a `ViewStateController`.
@@ -265,7 +283,7 @@ In this video, we are tweaking around some properties and pass them to the `with
 
 The app used for this video can be downloaded from [this repository](https://github.com/mdb1/ViewStateControllerExampleApp). 
 
-# Toast
+# Toasts
 
 // TODO: Explain the Toast functionality
 
