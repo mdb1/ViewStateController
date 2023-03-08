@@ -285,11 +285,30 @@ The app used for this video can be downloaded from [this repository](https://git
 
 # Toasts
 
-// TODO: Explain the Toast functionality
+Similar to the LoadingModifier, there is also a [ToastModifier](https://github.com/mdb1/ViewStateController/blob/main/Sources/ViewStateController/ViewModifiers/ToastModifier.swift) that let's you present toast/snack bars/custom views in the screen with a set of configurable parameters.
+
+https://user-images.githubusercontent.com/5333984/223858961-f9d14879-1f12-4b59-af0f-9120867a071d.mp4
 
 ## Examples with code samples
 
-// TODO: Upload videos of toasts/snackBars here
+### SnackBar
+Let's say we want a snack bar to be displayed at the bottom of the screen, we can achieve that with these lines of code:
+
+```swift
+@State private var displayToast: Bool = false
+
+...
+
+YourView
+    .toast(
+        isShowing: $displayToast,
+        type: .snackBar(options: .init(message: .init(text: "Hey There"))),
+        transitionOptions: .init(transition: .move(edge: .bottom).combined(with: .opacity)),
+        positionOptions: .init(position: .bottom)
+    )
+```
+
+https://user-images.githubusercontent.com/5333984/223858908-7ba01ac8-2630-4d4b-b220-2977e2757a3b.mp4
 
 # Internal Project Tools
 
