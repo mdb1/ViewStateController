@@ -21,6 +21,7 @@ There is an Example app available [here](https://github.com/mdb1/ViewStateContro
   * [Demo](https://github.com/mdb1/ViewStateController#demo-loading-type-options)
   * [ModifyingIds](https://github.com/mdb1/ViewStateController#modifying-ids)
       * [Demo](https://github.com/mdb1/ViewStateController#demo-modifying-ids)
+  * [DebugState](https://github.com/mdb1/ViewStateController#debug-state)
 * [Toasts](https://github.com/mdb1/ViewStateController#toast)
   * [Examples with code samples](https://github.com/mdb1/ViewStateController#examples-with-code-samples-1)
 
@@ -358,6 +359,34 @@ struct Pokemon: Identifiable {
 ### Demo: Modifying Ids
 
 https://user-images.githubusercontent.com/5333984/225748007-ff1e0fed-8e80-4b73-9f3e-d83b7edc3064.mov
+
+## Debug State
+For DEBUG builds, there is a view extension that you can apply to any view, that lets you modify the state of the controller with ease.
+
+```swift
+/// Applies the debug state modifier to the view.
+/// By tapping 3 times on the view, a modal will be displayed with options to debug
+/// the state of the controller.
+extension View {
+    public func debugState<Info>(
+        controller: Binding<ViewStateController<Info>>,
+        mockInfo: Info
+    ) -> some View {
+        #if DEBUG
+        // Only apply the debug state modifier in debug builds
+        self.modifier(DebugStateModifier(controller: controller, mockInfo: mockInfo))
+        #endif
+    }
+}
+```
+
+Usage:
+```swift
+someView
+    .debugState(controller: $controller, mockInfo: someMockInfo)
+```
+
+https://user-images.githubusercontent.com/5333984/231207650-8579219c-e583-4180-aeaf-c114eaf22586.mov
 
 # Toasts
 
