@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "ED0600AA-B949-45B0-BF15-C9979B965E81",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ViewStateControllerTests",
+        "name" : "ViewStateControllerTests"
+      }
+    }
+  ],
+  "version" : 1
+}
