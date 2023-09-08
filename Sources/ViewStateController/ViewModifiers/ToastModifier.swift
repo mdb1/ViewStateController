@@ -32,11 +32,13 @@ public extension View {
 /// Display a toast message for some (configurable) seconds. Then disappears.
 public struct ToastModifier: ViewModifier {
     @Binding public var isShowing: Bool
+    @State private var cancelableAction: DispatchWorkItem?
+    @State private var elapsedSeconds: Int = 0
+    @State private var timer: Timer? = nil
     private let type: ToastType
     private let transitionOptions: ToastTransitionOptions
     private let positionOptions: ToastPositionOptions
     private let onTap: (() -> Void)?
-    @State private var cancelableAction: DispatchWorkItem?
 
     public init(
         isShowing: Binding<Bool>,
@@ -50,6 +52,7 @@ public struct ToastModifier: ViewModifier {
         self.transitionOptions = transitionOptions
         self.positionOptions = positionOptions
         self.onTap = onTap
+        self.timer?.invalidate()
     }
 
     public func body(content: Content) -> some View {
@@ -62,6 +65,13 @@ public struct ToastModifier: ViewModifier {
                     .padding(.top, positionOptions.padding.top)
                     .padding(.trailing, positionOptions.padding.trailing)
                     .padding(.bottom, positionOptions.padding.bottom)
+            }
+        }
+        .onChange(of: isShowing) { newValue in
+            if newValue {
+                setUpTimer()
+            } else {
+                self.timer?.invalidate()
             }
         }
     }
@@ -92,23 +102,6 @@ private extension ToastModifier {
                         isShowing = false
                     }
                 }
-            }
-            .onAppear {
-                cancelableAction = DispatchWorkItem {
-                    withAnimation {
-                        isShowing = false
-                    }
-                }
-
-                if let action = cancelableAction {
-                    DispatchQueue.main.asyncAfter(
-                        deadline: .now() + transitionOptions.duration,
-                        execute: action
-                    )
-                }
-            }
-            .onDisappear {
-                cancelableAction?.cancel()
             }
             .transition(
                 transitionOptions.transition
@@ -174,5 +167,26 @@ private extension ToastModifier {
         .padding(.bottom, options.internalPadding.bottom)
         .background(options.background.color)
         .cornerRadius(options.background.cornerRadius)
+    }
+
+    func setUpTimer() {
+        // Reset the timer and elapsed seconds
+        self.timer?.invalidate()
+        elapsedSeconds = 0
+
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if isShowing {
+                elapsedSeconds += 1
+//                print("😄 Timer tick. Elapsed seconds: \(elapsedSeconds)")
+                if elapsedSeconds >= Int(transitionOptions.duration) {
+                    withAnimation {
+                        isShowing = false
+                    }
+                }
+            } else {
+                // Reset the elapsed time
+                elapsedSeconds = 0
+            }
+        }
     }
 }

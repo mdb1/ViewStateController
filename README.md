@@ -413,6 +413,27 @@ YourView
     )
 ```
 
+## Note about re-using the same toast/snack bar
+
+When you want to use the same modifier, and present the toast/snack bar multiple times, you need to remember to first hide the one that you were showing (in case it's on the screen), and then display the new one:
+
+```swift
+Button("Toast") {
+    if displayToast {
+        // If the toast was being displayed, trigger the hide action.
+        displayToast = false
+    }
+    // And then trigger the show action.
+    withAnimation {
+        displayToast = true
+    }
+}
+```
+
+This will ensure that the `second` toast, gets rendered on the screen for the full amount of seconds (in the transitionOptions.duration property) before being dismissed.
+
+To properly check that your code is working, you can uncomment the `print("😄 Timer tick. Elapsed seconds: \(elapsedSeconds)")` line, and check the Xcode console.
+
 https://user-images.githubusercontent.com/5333984/223858908-7ba01ac8-2630-4d4b-b220-2977e2757a3b.mp4
 
 # Internal Project Tools
